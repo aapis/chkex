@@ -17,6 +17,19 @@ module Chkex
           .gsub('www.', '')
           .gsub('/', '')
       end
+
+      # def process_list
+      #   result = Process.new(url)
+
+      #   @results[:errors][result.error] = { domain: result.url } unless result.error.nil?
+
+      #   next unless result.error.nil?
+
+      #   expiry_date = Date.parse(result.expires_on.strftime('%Y-%m-%d'))
+      #   diff = expiry_date.mjd - @now.mjd
+
+      #   @results[:success][diff] = { expiry: expiry_date, domain: result.url }
+      # end
     end
   end
 end

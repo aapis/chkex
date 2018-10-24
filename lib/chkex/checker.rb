@@ -7,11 +7,8 @@ module Chkex
     end
 
     def test
-      if @type == :multiple
-        @results = Source::List.new(@domains).results
-      else
-        @results = Source::One.new(@domains).results
-      end
+      @results = Source::One.new(@domains).results if @type == :one
+      @results = Source::List.new(@domains).results if @type == :multiple
 
       header('Failed - manually check these', :error)
       print_errors
