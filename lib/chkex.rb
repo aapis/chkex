@@ -23,6 +23,12 @@ module Chkex
     end
   end
 
+  class InitializationError < StandardError
+    def initialize(msg='Invalid type, cannot continue execution')
+      super(msg)
+    end
+  end
+
   def self.run(source)
     Checker.new(source, :multiple).test
   end

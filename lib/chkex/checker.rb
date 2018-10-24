@@ -7,9 +7,21 @@ module Chkex
     end
 
     def test
-      @results = Source::One.new(@domains).results if @type == :one
-      @results = Source::List.new(@domains).results if @type == :multiple
+      case @type
+      when :one
+        @results = Source::One.new(@domains).results
+      when :multiple
+        @results = Source::List.new(@domains).results
+      else
+        raise Chkex::InitializationError
+      end
 
+      print_output
+    end
+
+    private
+
+    def print_output
       header('Failed - manually check these', :error)
       print_errors
       header('Passed', :success)
@@ -38,9 +50,9 @@ module Chkex
 
     def header(text, type)
       if type == :success
-        return unless @results[:success].size > 0
+        return if @results[:success].empty?
       else
-        return unless @results[:errors].size > 0
+        return if @results[:errors].empty?
       end
 
       Notify.note(text)
