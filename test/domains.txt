@@ -1,0 +1,9 @@
+google.com
+apple.com
+microsoft.com
+salesforce.com
+amazon.com
+appleid.apple.com
+smile.amazon.com
+doesnotexist.google.com
+invaliddomain893274.com
