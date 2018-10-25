@@ -1,28 +1,22 @@
 # Chkex
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/chkex`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A really simple gem to check domain expiration dates.  One of the tools in our arsenal @starburstcreative.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'chkex'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Install the binary:
 
     $ gem install chkex
 
 ## Usage
 
-TODO: Write usage instructions here
+Process a list of domains:
+
+    $ chkex /path/to/a/file.txt
+
+Get info for a single domain:
+
+    $ chkex google.com
 
 ## Development
 
@@ -32,7 +26,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/chkex.
+Bug reports and pull requests are welcome on GitHub at https://github.com/aapis/chkex.
 
 ## License
 
