@@ -6,7 +6,7 @@ module Chkex
 
       raise Chkex::FileNotFound unless File.exist?(file_path)
 
-      File.read(file_path).split("\n")
+      File.read(file_path).split("\n").uniq
     end
   end
 end
