@@ -7,3 +7,4 @@ appleid.apple.com
 smile.amazon.com
 doesnotexist.google.com
 invaliddomain893274.com
+google.com
