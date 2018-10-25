@@ -8,12 +8,12 @@ class ChkexTest < Minitest::Test
   def test_check_one_domain
     result = Chkex.run_one('google.com')
 
-    assert result
+    assert result.is_a?(Hash)
   end
 
   def check_list_of_domains
-    result = Chkex.run('domains.txt')
+    result = Chkex.run('test/domains.txt')
 
-    assert result
+    assert result.is_a?(Hash)
   end
 end

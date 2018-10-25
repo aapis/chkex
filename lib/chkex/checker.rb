@@ -26,25 +26,31 @@ module Chkex
       print_errors
       header('Passed', :success)
       print_success
+
+      @results
     end
 
     def print_success
       @results[:success].each do |k, v|
-        if k <= 50
-          if k > 0
-            Notify.warning "!! #{v[:domain]} - #{v[:expiry]} (#{k} days away)"
+        v.each do |h|
+          if k <= 50
+            if k > 0
+              Notify.warning "!! #{h[:domain]} - #{h[:expiry]} (#{k} days away)"
+            else
+              Notify.warning "!!! #{h[:domain]} - #{h[:expiry]} (EXPIRED #{k*-1} days ago!)"
+            end
           else
-            Notify.warning "!!! #{v[:domain]} - #{v[:expiry]} (EXPIRED #{k*-1} days ago!)"
+            Notify.info "#{h[:domain]} - #{h[:expiry]} (#{k} days away)"
           end
-        else
-          Notify.info "#{v[:domain]} - #{v[:expiry]} (#{k} days away)"
         end
       end
     end
 
     def print_errors
       @results[:errors].each do |k, v|
-        Notify.warning "#{v[:domain]} - Reason: #{k}"
+        v.each do |h|
+          Notify.warning "#{h[:domain]} - Reason: #{k}"
+        end
       end
     end
 
